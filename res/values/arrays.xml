@@ -259,6 +259,8 @@
         <item>@string/status_bar_battery_style_icon_landscape</item>
         <item>@string/status_bar_battery_style_icon_landscape_style_a</item>
         <item>@string/status_bar_battery_style_icon_landscape_style_b</item>
+        <item>Landscape Icon iOS Fifteen</item>
+        <item>Landscape Icon iOS Sixteen</item>
         <item>@string/status_bar_battery_style_circle</item>
         <item>@string/status_bar_battery_style_dotted_circle</item>
         <item>@string/status_bar_battery_style_filled_circle</item>
@@ -282,6 +284,8 @@
         <item>13</item>
         <item>10</item>
         <item>11</item>
+        <item>12</item>
+        <item>13</item>
     </string-array>
 
     <string-array name="status_bar_battery_percentage_entries" translatable="false">
