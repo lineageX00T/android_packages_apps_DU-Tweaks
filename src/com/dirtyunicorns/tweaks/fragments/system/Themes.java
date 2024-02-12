@@ -66,6 +66,7 @@ public class Themes extends SettingsPreferenceFragment
     public static final String PREF_STATUSBAR_ICONS = "statusbar_icons";
     public static final String PREF_THEME_SWITCH = "theme_switch";
     public static final String PREF_FONT_PICKER = "font_picker";
+    public static final String PREF_NETWORK_ICONS = "network";
 
     // Gvisual Mod
     private static final String PREF_SB_HEIGHT = "sb_height_style";
@@ -86,6 +87,7 @@ public class Themes extends SettingsPreferenceFragment
     private ListPreference mQsTileStyle;
     private ListPreference mNavbarPicker;
     private ListPreference mFontPicker;
+    private ListPreference mNetwork;
     private ColorPickerPreference mAccentColor;
 
     //Gvisual
@@ -187,7 +189,16 @@ public class Themes extends SettingsPreferenceFragment
         }
         mSwitchStyle.setSummary(mSwitchStyle.getEntry());
         mSwitchStyle.setOnPreferenceChangeListener(this);
-
+        // Network Icon
+        mNetwork = (ListPreference) findPreference(PREF_NETWORK_ICONS);
+        int NetworkValue = getOverlayPosition(ThemesUtils.NETWORK_ICONS);
+        if (NetworkValue != -1) {
+            mNetwork.setValue(String.valueOf(NetworkValue + 2));
+        } else {
+            mNetwork.setValue("1");
+        }
+        mNetwork.setSummary(mNetwork.getEntry());
+        mNetwork.setOnPreferenceChangeListener(this);
         mQsTileStyle = (ListPreference) findPreference(PREF_TILE_STYLE);
         int qsTileStyle = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.QS_TILE_STYLE, 0);
@@ -449,6 +460,21 @@ public class Themes extends SettingsPreferenceFragment
             }
             mSwitchStyle.setSummary(mSwitchStyle.getEntry());
             return true;
+        // Network Icon
+        } else if (preference == mNetwork) {
+            String Network = (String) newValue;
+            int NetworkValue = Integer.parseInt(Network);
+            mNetwork.setValue(String.valueOf(NetworkValue));
+            String overlayName = getOverlayName(ThemesUtils.NETWORK_ICONS);
+        if (overlayName != null) {
+                handleOverlays(overlayName, false, mOverlayManager);
+            }
+        if (NetworkValue > 1) {
+                handleOverlays(ThemesUtils.NETWORK_ICONS[NetworkValue - 2],
+                        true, mOverlayManager);
+        }
+        mNetwork.setSummary(mNetwork.getEntry());
+        return true;
         } else if (preference == mNavbarPicker) {
             String navbarStyle = (String) newValue;
             int navbarStyleValue = Integer.parseInt(navbarStyle);

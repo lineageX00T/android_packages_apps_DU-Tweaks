@@ -1360,4 +1360,7 @@
     <string name="use_stream_spoof_title">Unlock higher quality streams</string>
     <string name="use_stream_spoof_summary">Spoof your device as Pixel 6 Pro to unlock higher quality streams on Amazon Prime, Disney+, Hotstar, and Netflix</string>
 
+    <!-- select able network --> 
+    <string name="network_icons">Signal and WiFi Icons</string>
+
 </resources>

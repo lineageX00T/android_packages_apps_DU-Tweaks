@@ -1470,4 +1470,30 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+
+    <string-array name="network_icons_entries" translatable="false">
+          <item>Default</item>
+          <item>Aurora</item>
+          <item>Forlorn</item>
+          <item>Hollow</item>
+          <item>ios</item>
+          <item>Plummy</item>
+          <item>Sneaky</item>
+          <item>Stroke</item>
+          <item>Xperia</item>
+          <item>ZigZag</item>
+    </string-array>
+    
+    <string-array name="network_icons_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
 </resources>
